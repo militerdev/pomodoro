@@ -1,0 +1,31 @@
+@use '/src/scss/flex';
+@use '/src/scss/media';
+@use '/src/app/colors';
+
+.control {
+    & {
+        grid-area: control;
+        @extend %display-flex;
+        @extend %flex-c;
+        @extend %flex-wrap;
+        gap: 30px;
+
+        @include media.sm {
+            gap: 1em;
+        }
+    }
+
+    &__btn {
+        width: 185px;
+        height: 40px;
+        font-size: 1.5em;
+        color: colors.$secondary;
+        background-color: colors.$primary;
+        border-radius: 20px;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+            background-color: colors.$accent;
+        }
+    }
+}

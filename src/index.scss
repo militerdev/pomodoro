@@ -1,0 +1,12 @@
+@use '/src/scss/normalize';
+@use '/src/app/font-face';
+@use '/src/app/common';
+
+@use '/src/app/app';
+
+@use '/src/components/Header/header';
+@use '/src/components/Navigation/navigation';
+@use '/src/components/Todo/todo';
+@use '/src/components/Timer/timer';
+@use '/src/components/Stats/stats';
+@use '/src/components/Control/control';

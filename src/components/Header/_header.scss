@@ -1,0 +1,27 @@
+@use '/src/scss/flex';
+@use '/src/app/colors';
+
+.header {
+    & {
+        grid-area: header;
+        @extend %display-flex;
+        @extend %flex-c;
+        gap: 1em;
+        margin: 0 auto;
+        // margin-bottom: 30px;
+        // margin-bottom: 50px;
+    }
+
+    &__title {
+        color: colors.$brand-red;
+
+        &::first-letter {
+            text-transform: capitalize;
+        }
+    }
+
+    &__logo {
+        width: 2em;
+        height: 2em;
+    }
+}

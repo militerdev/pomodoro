@@ -1,0 +1,82 @@
+//* bootstrap examples
+// $breakpoint-xl: 1200px;
+// $breakpoint-lg: 992px;
+// $breakpoint-md: 768px;
+// $breakpoint-sm: 576px;
+// $breakpoint-xs: 0;
+
+//* Example 2
+// $breakpoint-xl: 1366px;
+// $breakpoint-lg: 960px;
+// $breakpoint-md: 720px;
+// $breakpoint-sm: 540px;
+// $breakpoint-xs: 320px;
+
+$mobile-first: false !default;
+
+//* Viewport
+$xl: 1200px !default;
+$lg: 1024px !default;
+$md: 768px !default;
+$sm: 576px !default;
+$xs: 320px !default;
+
+@mixin max($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin min($width) {
+    @media screen and (min-width: ($width + 0.02px)) {
+        @content;
+    }
+}
+
+@mixin min-max($width-min, $width-max) {
+    @media screen and (min-width: ($width-min + 0.02px)) and (max-width: $width-max) {
+        @content;
+    }
+}
+
+@mixin -media($bp) {
+    @if $mobile-first {
+        @include min($bp) {
+            @content;
+        }
+    } @else {
+        @include max($bp) {
+            @content;
+        }
+    }
+}
+
+@mixin xl {
+    @include -media($xl) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @include -media($lg) {
+        @content;
+    }
+}
+
+@mixin md {
+    @include -media($md) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @include -media($sm) {
+        @content;
+    }
+}
+
+@mixin xs {
+    @include -media($xs) {
+        @content;
+    }
+}

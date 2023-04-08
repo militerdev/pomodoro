@@ -1,0 +1,100 @@
+@use '/src/scss/flex';
+@use '/src/app/colors';
+
+.todo {
+    & {
+        grid-area: todo;
+        align-self: start;
+    }
+
+    &__title {
+    }
+
+    ol {
+        list-style: none;
+        counter-reset: todo-counter;
+    }
+    ol li {
+        counter-increment: todo-counter;
+    }
+    ol li::before {
+        content: counter(todo-counter) '. ';
+    }
+
+    &__list {
+        margin-top: 1em;
+        // padding-left: 1.5em;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 2ch 1fr min-content min-content;
+        align-items: center;
+        gap: 4px;
+        line-height: 1.5;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__activate {
+        text-align: left;
+        // position: relative;
+        // @extend %display-flex;
+        // @extend %flex-ai-fe;
+        // gap: 4px;
+
+        // &:after {
+        //     content: '';
+        //     display: block;
+        //     flex-grow: 1;
+        //     border-bottom: 1px dotted colors.$primary;
+        // }
+
+        &:hover {
+            color: colors.$accent;
+        }
+
+        &[contenteditable='true']:focus {
+            width: 100%;
+            height: 100%;
+            outline: 1px solid colors.$accent;
+            outline-offset: 2px;
+        }
+    }
+
+    @at-root %editdel {
+        width: 16px;
+        height: 16px;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__edit {
+        @extend %editdel;
+        background: url(../../svg/edit.svg) center/contain no-repeat;
+    }
+
+    &__del {
+        @extend %editdel;
+        background: url(../../svg/delete.svg) center/contain no-repeat;
+    }
+
+    &__add {
+        color: #4694fa;
+        text-align: left;
+    }
+}
+
+.todo-title {
+    grid-area: title;
+    align-self: start;
+    width: fit-content;
+    margin: 0 auto;
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+}

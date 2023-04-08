@@ -1,0 +1,35 @@
+@use '/src/scss/flex';
+@use '/src/scss/media';
+@use '/src/app/colors';
+
+.navigation {
+    grid-area: navigation;
+    @extend %display-flex;
+    @extend %flex-sb;
+    gap: 20px;
+
+    @include media.sm {
+        gap: 1em;
+    }
+
+    &__btn {
+        flex-grow: 1;
+        height: 40px;
+        padding: 0 20px;
+        border-radius: 20px;
+        transition-property: color, background-color;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in-out;
+
+        &_active {
+            color: colors.$secondary;
+            background-color: colors.$primary;
+            pointer-events: none;
+        }
+
+        &:hover {
+            color: colors.$secondary;
+            background-color: colors.$accent;
+        }
+    }
+}

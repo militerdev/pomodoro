@@ -1,0 +1,21 @@
+@use '/src/scss/flex';
+@use '/src/app/colors';
+
+.timer {
+    grid-area: timer;
+    @extend %display-flex;
+    @extend %flex-c;
+    font-size: 120px;
+    font-variant-numeric: tabular-nums;
+    color: colors.$primary;
+
+    &__minutes {
+        flex: 1;
+        text-align: right;
+    }
+
+    &__seconds {
+        flex: 1;
+        text-align: left;
+    }
+}

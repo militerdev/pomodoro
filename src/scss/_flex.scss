@@ -1,0 +1,287 @@
+@use 'sass:math';
+
+%flex,
+%display-flex,
+%d-flex {
+    display: flex;
+}
+
+//* justify-content
+%justify,
+%flex-jc {
+    &-center,
+    &-c {
+        justify-content: center;
+    }
+
+    &-sa {
+        justify-content: space-around;
+    }
+
+    &-sb {
+        justify-content: space-between;
+    }
+
+    &-se {
+        justify-content: space-evenly;
+    }
+
+    &-fs {
+        justify-content: flex-start;
+    }
+
+    &-fe {
+        justify-content: flex-end;
+    }
+}
+
+//* align-items
+%align-items,
+%flex-ai {
+    &-center,
+    &-c {
+        align-items: center;
+    }
+
+    &-fs {
+        align-items: flex-start;
+    }
+
+    &-fe {
+        align-items: flex-end;
+    }
+
+    &-st {
+        align-items: stretch;
+    }
+}
+
+//* flex-direction
+%flex,
+%flex-direction,
+%flex-d {
+    &-row,
+    &-r {
+        flex-direction: row;
+    }
+
+    &-row-reverse,
+    &-rr {
+        flex-direction: row-reverse;
+    }
+
+    &-column,
+    &-cl {
+        flex-direction: column;
+    }
+
+    &-column-reverse,
+    &-cr {
+        flex-direction: column-reverse;
+    }
+}
+
+//* flex-wrap
+%flex {
+    &-wrap,
+    &-w {
+        flex-wrap: wrap;
+    }
+
+    &-nowrap,
+    &-nw {
+        flex-wrap: nowrap;
+    }
+
+    &-wrap-reverse,
+    &-wr {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+//* flex-flow
+%flex-flow,
+%flex-ff {
+    //* row
+    &-default,
+    &-d,
+    &-r-nw {
+        flex-flow: row nowrap;
+    }
+
+    &-r-w {
+        flex-flow: row wrap;
+    }
+
+    &-rr-nw {
+        flex-flow: row-reverse nowrap;
+    }
+
+    &-rr-w {
+        flex-flow: row-reverse wrap;
+    }
+
+    //* column
+    &-cl-nw {
+        flex-flow: column nowrap;
+    }
+
+    &-cl-w {
+        flex-flow: column wrap;
+    }
+
+    &-cr-nw {
+        flex-flow: column-reverse nowrap;
+    }
+
+    &-cr-w {
+        flex-flow: column-reverse wrap;
+    }
+}
+
+@mixin flex-container($jc: null, $ai: null, $fd: null, $ff: null) {
+    $flex-map: (
+        c: center,
+        sa: space-around,
+        sb: space-between,
+        se: space-evenly,
+        fs: flex-start,
+        fe: flex-end,
+        bl: baseline,
+        st: stretch,
+
+        r: row,
+        rr: row-reverse,
+        cl: column,
+        cr: column-reverse,
+
+        r-nw: row nowrap,
+        r-w: row wrap,
+        rr-nw: row-reverse nowrap,
+        rr-w: row-reverse wrap,
+        cl-nw: column nowrap,
+        cl-w: column wrap,
+        cr-nw: column-reverse nowrap,
+        cr-w: column-reverse wrap,
+    );
+
+    $justify-content: center;
+    $align-items: center;
+    $flex-direction: row;
+    $flex-flow: row nowrap;
+
+    @each $key, $value in $flex-map {
+        //* justify-content
+        // Correct values: c|center, sa|space-around, sb|space-between, se|space-evenly, null
+        @if $jc == $key {
+            $justify-content: #{map-get($flex-map, $jc)};
+        } @else if $jc == $value {
+            $justify-content: $value;
+        }
+
+        //* align-items
+        // Correct values: c|center, fs|flex-start, fe|flex-end, st|strech, bl|baseline, null
+        @if $ai == $key {
+            $align-items: #{map-get($flex-map, $ai)};
+        } @else if $ai == $value {
+            $align-items: $value;
+        }
+
+        //* flex-direction
+        // Correct values: r|row, rr|row-reverse, cl|column, cr|column-reverse, null
+        @if $fd == $key {
+            $flex-direction: #{map-get($flex-map, $fd)};
+        } @else if $fd == $value {
+            $flex-direction: $value;
+        }
+
+        //* flex-flow
+        // Correct values: 'r-nw'|row nowrap, 'r-w'|row wrap, 'rr-nw'|row-reverse nowrap, 'rr-w'|row-reverse wrap, 'cl-nw'|column nowrap, 'cl-w'|column wrap, 'cr-nw'|column-reverse nowrap, 'cr-w'|column-reverse wrap,
+        @if $ff == $key {
+            $flex-flow: #{map-get($flex-map, $ff)};
+        } @else if $fd == $value {
+            $flex-flow: $value;
+        }
+    }
+
+    // display: flex;
+
+    @if $jc != null {
+        justify-content: $justify-content;
+    }
+
+    @if $ai != null {
+        align-items: $align-items;
+    }
+
+    @if $fd != null {
+        flex-direction: $flex-direction;
+    }
+
+    @if $ff != null {
+        flex-flow: $flex-flow;
+    }
+}
+
+@mixin flex($grow, $shrink, $base) {
+    flex: $grow $shrink $base;
+}
+
+@mixin flex-column($grow, $shrink, $col) {
+    flex: $grow $shrink math.percentage(math.div($col, 12));
+}
+
+@mixin flex-col($grow, $shrink, $col) {
+    @include flex-column($grow, $shrink, $col);
+}
+
+%flex {
+    $justify: (c, sa, sb, se, fs, fe);
+    $align-items: (c, fs, fe, st, bl);
+
+    //* no-direction (default: row)
+    //* no-flex-flow (default: row nowrap)
+    //* only $jc and $ai
+    & {
+        @each $j in $justify {
+            &-#{$j} {
+                @include flex-container($j, c);
+
+                @each $ai in $align-items {
+                    &-#{$ai} {
+                        @include flex-container($j, $ai);
+                    }
+                }
+            }
+        }
+    }
+
+    &-row {
+        @each $j in $justify {
+            &-#{$j} {
+                @include flex-container($j, c, r);
+
+                @each $ai in $align-items {
+                    &-#{$ai} {
+                        @include flex-container($j, $ai, r);
+                    }
+                }
+            }
+        }
+    }
+
+    &-column,
+    &-col {
+        @each $j in $justify {
+            &-#{$j} {
+                @include flex-container($j, c, cl);
+
+                @each $ai in $align-items {
+                    &-#{$ai} {
+                        @include flex-container($j, $ai, cl);
+                    }
+                }
+            }
+        }
+    }
+}

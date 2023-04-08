@@ -1,0 +1,36 @@
+@use '/src/scss/flex';
+
+.stats {
+    & {
+        grid-area: stats;
+    }
+
+    &__title {
+    }
+
+    &__list {
+        margin-top: 1em;
+    }
+
+    &__item {
+        @extend %display-flex;
+        @extend %flex-sb;
+        line-height: 1.5;
+    }
+
+    &__pomodoro {
+        width: fit-content;
+        margin: 0 auto;
+        font-size: 3em;
+    }
+
+    &__pomodoro-caption {
+        width: fit-content;
+        margin: 1rem auto;
+        font-size: 1.125em;
+    }
+
+    &__caption {
+        flex-basis: 4em;
+    }
+}

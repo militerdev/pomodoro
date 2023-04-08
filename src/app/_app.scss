@@ -1,0 +1,52 @@
+@use '/src/scss/flex';
+@use '/src/scss/media';
+
+.app {
+    & {
+        @extend %display-flex;
+        @extend %flex-c;
+        min-width: 320px;
+        min-height: 100vh;
+    }
+
+    &__wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 10px;
+
+        display: grid;
+        // align-items: center;
+        gap: 20px;
+
+        grid-template:
+            '.     header     .'
+            '.     navigation .'
+            'todo  title      stats'
+            'todo  timer      stats' 1fr
+            'todo     control    .'
+            / 1fr 2fr 1fr;
+
+        @include media.md {
+            grid-template:
+                'header     header'
+                'navigation navigation'
+                'title      title'
+                'timer      timer'
+                'control    control'
+                'todo       stats'
+                / 1fr 1fr;
+        }
+
+        @include media.sm {
+            grid-template:
+                'header'
+                'navigation'
+                'title'
+                'timer'
+                'control'
+                'todo'
+                'stats'
+                / 1fr;
+        }
+    }
+}

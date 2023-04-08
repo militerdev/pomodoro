@@ -1,0 +1,441 @@
+textarea, select,
+option, input[type=date],
+input[type=time],
+input[type=datetime-local], input[type=text],
+input[type=number],
+input[type=tel],
+input[type=email],
+input[type=password],
+input[type=file],
+legend, label, fieldset, form, button,
+input[type=button],
+input[type=reset],
+input[type=submit], svg, img, p, span, a, div, article, section, nav, aside, main, footer, header, h6, h5, h4, h3, h2, h1 {
+  display: block;
+  box-sizing: border-box;
+}
+
+figure, li, ol, ul, textarea, select,
+option, input[type=checkbox], input[type=date],
+input[type=time],
+input[type=datetime-local], input[type=text],
+input[type=number],
+input[type=tel],
+input[type=email],
+input[type=password],
+input[type=file],
+legend, label, fieldset, form, button,
+input[type=button],
+input[type=reset],
+input[type=submit], p, div, code, pre, h6, h5, h4, h3, h2, h1, body, html {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset, button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  border: none;
+}
+
+input[type=radio], input[type=checkbox], button,
+input[type=button],
+input[type=reset],
+input[type=submit], a {
+  cursor: pointer;
+}
+
+input[type=date],
+input[type=time],
+input[type=datetime-local], input[type=text],
+input[type=number],
+input[type=tel],
+input[type=email],
+input[type=password],
+input[type=file],
+legend, button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  background-color: transparent;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+h6, h5, h4, h3, h2, h1 {
+  font-weight: bolder;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: auto;
+  -o-object-position: center;
+  object-position: center;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-style: none;
+}
+
+svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+textarea, select,
+option, input[type=checkbox], input[type=date],
+input[type=time],
+input[type=datetime-local], input[type=text],
+input[type=number],
+input[type=tel],
+input[type=email],
+input[type=password],
+input[type=file],
+legend, button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  color: inherit;
+  font: inherit;
+}
+
+select,
+option, label, button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  text-align: center;
+}
+button:focus, button.focus,
+input[type=button]:focus,
+input[type=button].focus,
+input[type=reset]:focus,
+input[type=reset].focus,
+input[type=submit]:focus,
+input[type=submit].focus {
+  outline: none;
+}
+input[type=text],
+input[type=number],
+input[type=tel],
+input[type=email],
+input[type=password],
+input[type=file],
+legend {
+  width: 100%;
+  -webkit-padding-start: 0;
+  padding-inline-start: 0;
+  -webkit-padding-end: 0;
+  padding-inline-end: 0;
+}
+
+input[type=checkbox] {
+  width: 1em;
+  height: 1em;
+}
+
+textarea {
+  resize: vertical;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.dn {
+  display: none;
+}
+
+.hidden,
+[hidden] {
+  visibility: hidden;
+}
+
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
+
+@font-face {
+  font-family: Lobster;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(""), url("../fonts/lobster-v28-latin_cyrillic-regular.woff2") format("woff2"), url("../fonts/lobster-v28-latin_cyrillic-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+body {
+  font-family: Lobster, sans-serif;
+  color: hsl(0deg, 92%, 66%);
+  background-color: hsl(60deg, 100%, 80%);
+}
+
+h1,
+h2,
+h3 {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+  margin-bottom: 1em;
+}
+
+.flex,
+.control,
+.stats__item,
+.timer,
+.todo__activate,
+.navigation,
+.header,
+.app {
+  display: flex;
+}
+
+.todo__activate {
+  align-items: flex-end;
+}
+.control {
+  flex-wrap: wrap;
+}
+.control, .timer, .header, .app {
+  justify-content: center;
+  align-items: center;
+}
+.stats__item, .navigation {
+  justify-content: space-between;
+  align-items: center;
+}
+.app {
+  min-width: 320px;
+  min-height: 100vh;
+}
+.app__wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  display: grid;
+  gap: 20px;
+  grid-template: ".     header     ." ".     navigation ." "todo  title      stats" "todo  timer      stats" 1fr "todo     control    ."/1fr 2fr 1fr;
+}
+@media screen and (max-width: 768px) {
+  .app__wrapper {
+    grid-template: "header     header" "navigation navigation" "title      title" "timer      timer" "control    control" "todo       stats"/1fr 1fr;
+  }
+}
+@media screen and (max-width: 576px) {
+  .app__wrapper {
+    grid-template: "header" "navigation" "title" "timer" "control" "todo" "stats"/1fr;
+  }
+}
+
+.header {
+  grid-area: header;
+  gap: 1em;
+  margin: 0 auto;
+}
+.header__title {
+  color: hsl(0deg, 51%, 52%);
+}
+.header__title::first-letter {
+  text-transform: capitalize;
+}
+.header__logo {
+  width: 2em;
+  height: 2em;
+}
+
+.navigation {
+  grid-area: navigation;
+  gap: 20px;
+}
+@media screen and (max-width: 576px) {
+  .navigation {
+    gap: 1em;
+  }
+}
+.navigation__btn {
+  flex-grow: 1;
+  height: 40px;
+  border-radius: 20px;
+  transition-property: color, background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.navigation__btn_active {
+  color: hsl(60deg, 100%, 80%);
+  background-color: hsl(0deg, 92%, 66%);
+  pointer-events: none;
+}
+.navigation__btn:hover {
+  color: hsl(60deg, 100%, 80%);
+  background-color: hsl(0deg, 90%, 60%);
+}
+
+.todo {
+  grid-area: todo;
+  align-self: start;
+}
+.todo ol {
+  list-style: none;
+  counter-reset: todo-counter;
+}
+.todo ol li {
+  counter-increment: todo-counter;
+}
+.todo ol li::before {
+  content: counter(todo-counter) ". ";
+}
+.todo__list {
+  margin-top: 1em;
+}
+.todo__item {
+  display: grid;
+  grid-template-columns: 2ch 1fr min-content min-content;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.5;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.todo__activate {
+  position: relative;
+  gap: 4px;
+}
+.todo__activate:after {
+  content: "";
+  display: block;
+  flex-grow: 1;
+  border-bottom: 1px dotted hsl(0deg, 92%, 66%);
+}
+.todo__activate:hover {
+  color: hsl(0deg, 90%, 60%);
+}
+.todo__del, .todo__edit {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+.todo__del:hover, .todo__edit:hover {
+  opacity: 1;
+}
+
+.todo__edit {
+  background: url(../img/edit.svg) center/contain no-repeat;
+}
+.todo__del {
+  background: url(../img/delete.svg) center/contain no-repeat;
+}
+.todo__add {
+  color: #4694fa;
+  text-align: left;
+}
+
+.timer {
+  grid-area: timer;
+  font-size: 120px;
+  font-variant-numeric: tabular-nums;
+  color: hsl(0deg, 92%, 66%);
+}
+.timer__minutes {
+  flex: 1;
+  text-align: right;
+}
+.timer__seconds {
+  flex: 1;
+  text-align: left;
+}
+
+.stats {
+  grid-area: stats;
+}
+.stats__list {
+  margin-top: 1em;
+}
+.stats__item {
+  line-height: 1.5;
+}
+.stats__pomodoro {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 3em;
+}
+.stats__pomodoro-caption {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1rem auto;
+  font-size: 1.125em;
+}
+.stats__caption {
+  flex-basis: 4em;
+}
+
+.title {
+  grid-area: title;
+  align-self: start;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+.title::first-letter {
+  text-transform: capitalize;
+}
+
+.control {
+  grid-area: control;
+  gap: 30px;
+}
+@media screen and (max-width: 576px) {
+  .control {
+    gap: 1em;
+  }
+}
+.control__btn {
+  width: 185px;
+  height: 40px;
+  font-size: 1.5em;
+  color: hsl(60deg, 100%, 80%);
+  background-color: hsl(0deg, 92%, 66%);
+  border-radius: 20px;
+  transition: background-color 0.2s ease-in-out;
+}
+.control__btn:hover {
+  background-color: hsl(0deg, 90%, 60%);
+}/*# sourceMappingURL=index.css.map */
