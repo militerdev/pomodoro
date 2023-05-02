@@ -1,11 +1,6 @@
 import './index.scss';
 
-// import Pomodoro from './modules/Pomodoro.js';
 import { App } from './app/App';
-
-// document.querySelector('#app');
-
-// const pomodoroDefault = new Pomodoro();
 
 App.init({
     name:        'Pomodoro',

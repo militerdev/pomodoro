@@ -13,9 +13,9 @@ export const Timer = {
     },
 
     _audioDefault: {
-        work:  '/src/audio/work.mp3',
-        break: '/src/audio/break.mp3',
-        relax: '/src/audio/relax.mp3',
+        work:  '/audio/work.mp3',
+        break: '/audio/break.mp3',
+        relax: '/audio/relax.mp3',
     },
 
     init(options = {}) {
@@ -28,9 +28,15 @@ export const Timer = {
         this.left = this.work * 60;
 
         this.audio = {};
-        this.audio.work = options?.audio?.work ? new Audio(options.audio.work) : new Audio(this._audioDefault.work);
-        this.audio.break = options?.audio?.break ? new Audio(options.audio.break) : new Audio(this._audioDefault.break);
-        this.audio.relax = options?.audio?.relax ? new Audio(options.audio.relax) : new Audio(this._audioDefault.relax);
+        this.audio.work = options?.audio?.work
+            ? new Audio(options.audio.work)
+            : new Audio(this._audioDefault.work);
+        this.audio.break = options?.audio?.break
+            ? new Audio(options.audio.break)
+            : new Audio(this._audioDefault.break);
+        this.audio.relax = options?.audio?.relax
+            ? new Audio(options.audio.relax)
+            : new Audio(this._audioDefault.relax);
     },
 
     renderInit(parent) {
@@ -159,9 +165,9 @@ export default class Timer2 {
     static #COUNT = 4;
 
     static #AUDIO = {
-        work:  new Audio('/src/audio/work.mp3'),
-        break: new Audio('/src/audio/break.mp3'),
-        relax: new Audio('/src/audio/relax.mp3'),
+        // work:  new Audio('/audio/work.mp3'),
+        // break: new Audio('/audio/break.mp3'),
+        // relax: new Audio('/audio/relax.mp3'),
     };
 
     #status = {
